@@ -51,11 +51,11 @@ public class Start {
 	        	if(chars.get(i) >= 'a' && chars.get(i) <= 'z'){
 	        		sizendalf=sizendalf+1;
 	        	if(hmnd.containsKey(chars.get(i))){
-	        		//System.out.println("Åñòü " );
+	        		
 	        		int l = hmnd.get(chars.get(i));
 	        		l=l+1;
 	        		hmnd.put(chars.get(i), l);
-	        		//System.out.println(">"+l);
+	        		
 		        } else {
 		        
 		        	hmnd.put(chars.get(i), j);
@@ -84,7 +84,7 @@ public class Start {
 	            } 
 	        }
 	     
-	        System.out.println("Çàøèôðîâàííî>");
+	        System.out.println("Ã‡Ã Ã¸Ã¨Ã´Ã°Ã®Ã¢Ã Ã­Ã­Ã®>");
 	        for(int i=0;i<shchars.size();i++){
 	        	
 		        System.out.print(shchars.get(i));
@@ -195,7 +195,7 @@ public class Start {
 //	            System.out.println("Key< " + entry.getKey() + " Value< "
 //	                + entry.getValue());
 //	        }
-	        System.out.println("\n"+"Ðàñøèôðîâàíî ïî ñðåäíåìó çíà÷åíèþ>");
+	        System.out.println("\n"+"Ð Ð°ÑÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð¾ Ð¿Ð¾ ÑÑ€ÐµÐ´Ð½ÐµÐ¼Ñƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑŽ>");
 	        for (int i = 0; i < shchars.size(); i++) {
 	           
 	            if (desh.containsKey(shchars.get(i)))
@@ -203,7 +203,7 @@ public class Start {
 	            else
 	                System.out.print(shchars.get(i));
 	        }
-	        System.out.println("\n"+"Ñâîè ÷àñòîòû");
+	        System.out.println("\n"+"Ð¡Ð²Ð¾Ð¸ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ñ‹");
 	        for (int i = 0; i < shchars.size(); i++) {
 		           
 	            if (deshnew.containsKey(shchars.get(i)))
