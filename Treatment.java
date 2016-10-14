@@ -111,7 +111,7 @@ public static void readhash(String fileName, String login, String password ) thr
 			
 			byte[] provhashps = makeHash(password, insalt);
 			if (new String(provhashps).equals(new String(buffer))){
-				System.out.println("Óñïåøíûé âõîä");
+				System.out.println("Успешный вход");
 				return;
 			
 		} 
@@ -120,7 +120,7 @@ public static void readhash(String fileName, String login, String password ) thr
 		}
 		
     }
-    System.out.println("Íåâåðíûé ëîãèí èëè ïàðîëü");  
+    System.out.println("Неверный логин или пароль");  
     }
     catch(IOException ex){
          
