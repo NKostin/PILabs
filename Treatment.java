@@ -26,7 +26,7 @@ public static void sigin(String login,String password, int salt, String fileName
 	
 	writehash(fileName, hashpsstr);
 	write(fileName,text);
-	System.out.println("Регистрация прошла успешно");
+	System.out.println("Р РµРіРёСЃС‚СЂР°С†РёСЏ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ");
 	
 	}
 public static void write(String fileName, String text){
@@ -111,7 +111,7 @@ public static void readhash(String fileName, String login, String password ) thr
 			
 			byte[] provhashps = makeHash(password, insalt);
 			if (new String(provhashps).equals(new String(buffer))){
-				System.out.println("Успешный вход");
+				System.out.println("Г“Г±ГЇГҐГёГ­Г»Г© ГўГµГ®Г¤");
 				return;
 			
 		} 
@@ -120,7 +120,7 @@ public static void readhash(String fileName, String login, String password ) thr
 		}
 		
     }
-    System.out.println("Неверный логин или пароль");  
+    System.out.println("ГЌГҐГўГҐГ°Г­Г»Г© Г«Г®ГЈГЁГ­ ГЁГ«ГЁ ГЇГ Г°Г®Г«Гј");  
     }
     catch(IOException ex){
          
