@@ -17,31 +17,31 @@ public class Start {
 		 Treatment sig = new Treatment();
 		 Treatment log = new Treatment();
 		 while(flag){
-	        System.out.print("Для входа введите log, а для регистрации sign: ");
+	        System.out.print("Р”Р»СЏ РІС…РѕРґР° РІРІРµРґРёС‚Рµ log, Р° РґР»СЏ СЂРµРіРёСЃС‚СЂР°С†РёРё sign:  ");
 	        String scan = in.nextLine();
 	        if(scan.equals(temp)){
-	        	System.out.print("Введите login: ");
+	        	System.out.print("Р’РІРµРґРёС‚Рµ login: ");
 	        	login = in.nextLine();
-	        	System.out.print("Введите password: ");
+	        	System.out.print("Р’РІРµРґРёС‚Рµ password: ");
 		        password = in.nextLine();
 		       
-		        // вызов функции входа
+		        // ГўГ»Г§Г®Гў ГґГіГ­ГЄГ¶ГЁГЁ ГўГµГ®Г¤Г 
 		        log.login(fileName, login,password);
 	        } else if(scan.equals(temp1)) {
 	        	boolean flag2=true;
-	        	System.out.print("Введите login: ");
+	        	System.out.print("Р’РІРµРґРёС‚Рµ login: ");
 	        	login = in.nextLine();
 	        	while(flag2){
-	        	System.out.print("Введите password: ");
+	        	System.out.print("Р’РІРµРґРёС‚Рµ password: ");
 	 	       	password = in.nextLine();
-	 	        System.out.print("Повторите введенный пароль password: ");
+	 	        System.out.print("РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРµРґРµРЅРЅС‹Р№ РїР°СЂРѕР»СЊ password: ");
 	 	        repassword = in.nextLine();
 	 	        if(password.equals(repassword)){
 	 	        	flag2=false;
 	 	        	
 	 	        }
 	 	        else{
-	 	        	 System.out.println("Пароли не совпадают. Пожалуйста повторите снова");
+	 	        	 System.out.println("РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚. РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРІС‚РѕСЂРёС‚Рµ СЃРЅРѕРІР°");
 	 	        }
 	 	       
 	 	        
