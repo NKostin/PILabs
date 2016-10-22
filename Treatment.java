@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public class Treatment {
 	
-	 static ArrayList<String> list= new ArrayList<String>();
+static ArrayList<String> list= new ArrayList<String>();
 public static void sigin(String login,String password, int salt, String fileName) throws Exception{
 	String stsalt = String.valueOf(salt);
 	byte[] hashpsstr = makeHash(password,stsalt);
