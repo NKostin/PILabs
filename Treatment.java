@@ -1,19 +1,9 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.io.*
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Scanner;
+
 
 public class Treatment {
 	
@@ -30,14 +20,9 @@ public static void sigin(String login,String password, int salt, String fileName
 	
 	}
 public static void write(String fileName, String text){
-	try(
-			FileWriter writer = new FileWriter(fileName, true))
+	try(FileWriter writer = new FileWriter(fileName, true))
     {
-
-        
         writer.write(text);
-        
-         
         writer.flush();
     }
     catch(IOException ex){
@@ -47,14 +32,9 @@ public static void write(String fileName, String text){
 	
 }
 public static void writehash(String fileName,byte[] hashps ){
-	try(
-			FileOutputStream fos=new FileOutputStream(fileName, true))
+	try(FileOutputStream fos=new FileOutputStream(fileName, true))
     {
-        
 		 fos.write(hashps);
-		
-         
-       
     }
     catch(IOException ex){
          
@@ -64,8 +44,6 @@ public static void writehash(String fileName,byte[] hashps ){
 }
 public static void readhash(String fileName, String login, String password ) throws Exception{
 	byte[] buffer = new byte[32];
-	
-	
 	try(
 			FileInputStream fin=new FileInputStream(fileName))
     { while(fin.available()>0){
@@ -104,9 +82,6 @@ public static void readhash(String fileName, String login, String password ) thr
 			}
 			
 		}
-		
-		
-   
 		if(login.equals(inlogin)){
 			
 			byte[] provhashps = makeHash(password, insalt);
@@ -115,8 +90,6 @@ public static void readhash(String fileName, String login, String password ) thr
 				return;
 			
 		} 
-			
-        
 		}
 		
     }
@@ -125,9 +98,7 @@ public static void readhash(String fileName, String login, String password ) thr
     catch(IOException ex){
          
         System.out.println(ex.getMessage());
-    }
-	
-	
+    }	
 }
 
 public static byte[] makeHash(String password, String stsalt) throws Exception{
@@ -143,12 +114,5 @@ public static byte[] makeHash(String password, String stsalt) throws Exception{
 public void login(String fileName, String login, String password) throws Exception{
 	
 	readhash(fileName, login, password);
-	
-
-	
-
-	
 }
-
-
 }
