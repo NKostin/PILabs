@@ -137,7 +137,7 @@ public class Module extends Thread {
 			}
 		}
 		//System.out.println("Вконце"+inTheEnd.size());
-		System.out.println("Ïîëíîòà äàííûõ="+((quantity.size()/inTheEnd.size())*100)+"%");
+		System.out.println("Полнота данных="+((quantity.size()/inTheEnd.size())*100)+"%");
 		Calendar time2 = Calendar.getInstance();
     	cameout= time2.getTimeInMillis();
     	//System.out.println("Time out"+cameout);
