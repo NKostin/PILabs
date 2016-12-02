@@ -30,9 +30,6 @@ public class Reader extends Thread {
 	                Thread.sleep(200);
 	            } catch (InterruptedException e) {
 	                System.out.println("File is empty");
-	              
-	              //  String s = null;
-	                //module.add(s);
 	                break;
 	            }
 	          	
@@ -49,10 +46,7 @@ public class Reader extends Thread {
 	            }
 	            part+=oneLine+"\n";
 	        }
-	       // System.out.println(part);
-	        //part.trim();
-	      
-	return part;
+	      return part;
 	    }
 }
 
