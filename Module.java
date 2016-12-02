@@ -25,7 +25,7 @@ public class Module extends Thread {
 		
 		while (true){
 			Calendar time1 = Calendar.getInstance();
-	    	camein= time1.getTimeInMillis();
+	    		camein= time1.getTimeInMillis();
 			if (dequeString.peek()==null){
 				try {
 					Thread.sleep(200);
@@ -136,13 +136,13 @@ public class Module extends Thread {
 				inTheEnd.add(charArray[j]);
 			}
 		}
-		//System.out.println("Вконце"+inTheEnd.size());
-		System.out.println("Полнота данных="+((quantity.size()/inTheEnd.size())*100)+"%");
+		//System.out.println("Р’РєРѕРЅС†Рµ"+inTheEnd.size());
+		System.out.println("ГЏГ®Г«Г­Г®ГІГ  Г¤Г Г­Г­Г»Гµ="+((quantity.size()/inTheEnd.size())*100)+"%");
 		Calendar time2 = Calendar.getInstance();
     	cameout= time2.getTimeInMillis();
     	//System.out.println("Time out"+cameout);
     	long time = cameout - camein;
-		System.out.println("Потрачено времени - "+time+"мс");
+		System.out.println("РџРѕС‚СЂР°С‡РµРЅРѕ РІСЂРµРјРµРЅРё - "+time+"Г¬Г±");
 	}
 
 }
