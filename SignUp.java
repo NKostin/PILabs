@@ -19,7 +19,7 @@ public class SignUp {
 			writehash(fileName, hashpsstr);
 			write(fileName,text);
 			writeLogin(login);
-			System.out.println("Регистрация прошла успешно");
+			System.out.println("Р РµРіРёСЃС‚СЂР°С†РёСЏ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ");
 			
 			
 			}
@@ -73,8 +73,6 @@ public class SignUp {
 					}
 				}
 				
-				
-				
 				if(ns=='\n'){
 					boolean flag = true;
 					while(flag){
@@ -90,9 +88,6 @@ public class SignUp {
 				if(login.equals(inlogin)){
 					return true;
 				}
-				
-				
-			
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -105,8 +100,6 @@ public class SignUp {
 	}
 	
 	 public static void writeLogin(String login){
-		//получаем login расшифровываем
-		
 			try {
 				FileWriter writeLogin = new FileWriter("src/login",false);
 				writeLogin.write(login);
