@@ -21,12 +21,12 @@ public class Registration {
 	 
 	 public  void registration(){
 		 while(true){
-	        System.out.print("Для входа введите signin, а для регистрации signup: ");
+	        System.out.print("Р”Р»СЏ РІС…РѕРґР° РІРІРµРґРёС‚Рµ signin, Р° РґР»СЏ СЂРµРіРёСЃС‚СЂР°С†РёРё signup: ");
 	        String scan = in.nextLine();
 	        if(scan.equals(signin)){
-	        	System.out.print("Введите login: ");
+	        	System.out.print("Р’РІРµРґРёС‚Рµ login: ");
 	        	shifrlogin = listen.listenString(in.nextLine()); 	
-	        	System.out.print("Введите password: ");
+	        	System.out.print("Р’РІРµРґРёС‚Рµ password: ");
 	        	shifrpassword = listen.listenString(in.nextLine());
 		        try {
 					siginer.sigin(fileName,shifrlogin,shifrpassword);
@@ -38,22 +38,22 @@ public class Registration {
 	        } else if(scan.equals(signup)) {
 	        	 boolean repeatLogin=true;
 	        	 while(repeatLogin){
-	        		 System.out.print("Введите login: ");
+	        		 System.out.print("Р’РІРµРґРёС‚Рµ login: ");
 	        		 shifrlogin = listen.listenString(in.nextLine()); 
 	        		 repeatLogin = siguper.findLogin(fileName,shifrlogin);
 	        		 if(repeatLogin){
-	        			 System.out.println("Такой login уже существует, пожалуйста, выберите другой");
+	        			 System.out.println("РўР°РєРѕР№ login СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РІС‹Р±РµСЂРёС‚Рµ РґСЂСѓРіРѕР№");
 	        		 } 
 	        	 }
 	        	 while(true){
-	        		System.out.print("Введите password: ");
+	        		System.out.print("Р’РІРµРґРёС‚Рµ password: ");
 	        		shifrpassword = listen.listenString(in.nextLine()); 
-	 	       		System.out.print("Повторите введенный пароль password: ");
+	 	       		System.out.print("РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРµРґРµРЅРЅС‹Р№ password: ");
 	 	       		shifrrepassword  = listen.listenString(in.nextLine()); 
 	 	       		if(shifrpassword.equals(shifrrepassword)){
 	 	       			break;
 	 	       		} else
-	 	        		System.out.println("Пароли не совпадают. Пожалуйста повторите снова");
+	 	        		System.out.println("РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚. РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРІС‚РѕСЂРёС‚Рµ СЃРЅРѕРІР°");
 	 	        
 	        	  }
 	        		Calendar day = Calendar.getInstance();
@@ -67,7 +67,7 @@ public class Registration {
 					}
 		        	break;
 	        } 
-	        System.out.println("Необходимо зарегестрироваться или войти");	
+	        System.out.println("РќРµРѕР±С…РѕРґРёРјРѕ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ РёР»Рё РІРѕР№С‚Рё");	
 		 }
 	 }
 }
