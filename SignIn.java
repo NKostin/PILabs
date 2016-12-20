@@ -52,7 +52,7 @@ public class SignIn {
 				if(login.equals(inlogin)){
 					byte[] provhashps = makeHash(password, insalt);
 					if (new String(provhashps).equals(new String(buffer))){
-						System.out.println("Успешный вход");
+						System.out.println("РЈСЃРїРµС€РЅС‹Р№ РІС…РѕРґ");
 						writeLogin(inlogin);
 						return;
 				
@@ -60,7 +60,7 @@ public class SignIn {
 				}	
 			}
 			
-	    System.out.println("Неверный логин или пароль");  
+	    System.out.println("РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ");  
 	    
 	    }catch(IOException ex){
 	         
