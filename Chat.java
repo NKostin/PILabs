@@ -6,11 +6,10 @@ import java.util.Scanner;
 
 public class Chat extends Thread {
 	 Scanner in = new Scanner(System.in);
-	 
 	 boolean exit = true;
 	 public  void run(){
-		 System.out.println("Добропожаловать в чат!");
-		 System.out.println("для выхода из чата введите !exit");
+		 System.out.println("Р”РѕР±СЂРѕРїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ С‡Р°С‚!");
+		 System.out.println("РґР»СЏ РІС‹С…РѕРґР° РёР· С‡Р°С‚Р° РІРІРµРґРёС‚Рµ !exit");
 		 while(exit){
 			 scanString();
 			 try {
@@ -20,7 +19,7 @@ public class Chat extends Thread {
 				e.printStackTrace();
 			}
 		 }
-		 System.out.print("Досвидания!");
+		 System.out.print("Р”РѕСЃРІРёРґР°РЅРёСЏ!");
 	 }
 	 public  void scanString(){
 		 String exit="!exit";
