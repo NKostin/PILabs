@@ -22,7 +22,7 @@ public class Handler extends Thread {
 	String tempshifrString="";
 	
 	boolean notString,notReadLogin;
-	Encryption encryp4 = new Encryption();
+	
 	FileWriter writerString;
 	 
 	 public  void run() {
@@ -87,7 +87,7 @@ public class Handler extends Thread {
 							
 						} else {
 							tempshifrString = shifrString;
-							rasshifrString = encryp4.rasshifr(shifrString);
+							rasshifrString = Encryption.rasshifr(shifrString);
 							if(rasshifrString.equals(login)){
 								notString = true;
 							} else
@@ -222,7 +222,7 @@ public class Handler extends Thread {
 	private void readLogin() {
 		 try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader("src/login"));
-			rasshifrLogin = encryp4.rasshifr(bufferedReader.readLine())+": ";
+			rasshifrLogin = Encryption.rasshifr(bufferedReader.readLine())+": ";
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

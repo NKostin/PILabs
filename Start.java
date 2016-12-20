@@ -37,8 +37,7 @@ public class Start {
 		}
 	}
 	public static void letsgo() throws IOException{
-		Encryption encryption = new Encryption();
-		encryption.takePublicKey();
+		Encryption.takePublicKey();
 		Registration reg = new Registration();
 		reg.registration();
 		clearStream();

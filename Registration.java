@@ -10,13 +10,14 @@ public class Registration {
 	Scanner in = new Scanner(System.in);
 	String signin="signin";
 	String signup="signup";
-	String login;
-	String password;
-	String repassword;
+	String shifrlogin;
+	String shifrpassword;
+	String shifrrepassword;
 	String fileName="src/baseofdata";
 	 
 	SignIn siginer = new SignIn();
 	SignUp siguper = new SignUp();
+	Listener listen = new Listener();
 	 
 	 public  void registration(){
 		 while(true){
@@ -24,11 +25,11 @@ public class Registration {
 	        String scan = in.nextLine();
 	        if(scan.equals(signin)){
 	        	System.out.print("Введите login: ");
-	        	login = in.nextLine();	
+	        	shifrlogin = listen.listenString(in.nextLine()); 	
 	        	System.out.print("Введите password: ");
-		        password = in.nextLine();
+	        	shifrpassword = listen.listenString(in.nextLine());
 		        try {
-					siginer.sigin(fileName,login,password);
+					siginer.sigin(fileName,shifrlogin,shifrpassword);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -38,18 +39,18 @@ public class Registration {
 	        	 boolean repeatLogin=true;
 	        	 while(repeatLogin){
 	        		 System.out.print("Введите login: ");
-	        		 login = in.nextLine();
-	        		 repeatLogin = siguper.findLogin(fileName,login);
+	        		 shifrlogin = listen.listenString(in.nextLine()); 
+	        		 repeatLogin = siguper.findLogin(fileName,shifrlogin);
 	        		 if(repeatLogin){
 	        			 System.out.println("Такой login уже существует, пожалуйста, выберите другой");
 	        		 } 
 	        	 }
 	        	 while(true){
 	        		System.out.print("Введите password: ");
-	 	       		password = in.nextLine();
+	        		shifrpassword = listen.listenString(in.nextLine()); 
 	 	       		System.out.print("Повторите введенный пароль password: ");
-	 	       		repassword = in.nextLine();
-	 	       		if(password.equals(repassword)){
+	 	       		shifrrepassword  = listen.listenString(in.nextLine()); 
+	 	       		if(shifrpassword.equals(shifrrepassword)){
 	 	       			break;
 	 	       		} else
 	 	        		System.out.println("Пароли не совпадают. Пожалуйста повторите снова");
@@ -59,7 +60,7 @@ public class Registration {
 		        	long ar= day.getTimeInMillis();
 		        	int salt = (int) ar;
 		        	try {
-						siguper.sigup(login,password, salt, fileName);
+						siguper.sigup(shifrlogin,shifrpassword, salt, fileName);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Encryption {
+public  class Encryption {
 	private static int n,k,e,d;
 	
 	private static ArrayList<Character> shchars = new ArrayList<Character>();
 	private static ArrayList<Character> rasshchars = new ArrayList<Character>();
 	private static Map<Character, Integer> code = new HashMap<Character, Integer>();
 	
-	public void takePublicKey(){
+	public static void takePublicKey(){
 		makeCode();
 		Path path = Paths.get("src/outputStream");
 		Scanner scanner;
@@ -37,7 +37,7 @@ public class Encryption {
 		
 	}
 	
-	public void makeCode(){
+	public static void makeCode(){
 		
 		char letter = 'a';
 		for(int point=0;point<26;point++){
@@ -103,7 +103,7 @@ public class Encryption {
 		} while(willbe1.intValue()!=1);
 	}
 	
-	public String shifr(String informations){
+	public static String shifr(String informations){
 		char [] charArray = informations.toCharArray ();
 		String shifrInformations="";
 		int countedSRA=0;
@@ -125,7 +125,7 @@ public class Encryption {
 		 return shifrInformations;
 	}
 	
-	public String rasshifr(String informations){
+	public static String rasshifr(String informations){
 		int countedSRA=0;
 		String shifrInformations="";
 		char [] charArray = informations.toCharArray();
@@ -148,7 +148,7 @@ public class Encryption {
 		return shifrInformations;
 	}
 	
-	public int shifrRSA(int tempvalue, int exponent){
+	public static int shifrRSA(int tempvalue, int exponent){
 		BigInteger  bigtempvalue, exp,modyl, numberRSA;
 		bigtempvalue = BigInteger.valueOf(tempvalue);
 		modyl = BigInteger.valueOf(n);

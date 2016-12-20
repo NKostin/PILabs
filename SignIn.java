@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.security.MessageDigest;
 
 public class SignIn {
+	String login,password;
 	
-	static Encryption encryp2 = new Encryption();
-	public void sigin(String fileName, String login, String password) throws Exception{
+	public void sigin(String fileName, String shifrlogin, String shifrpassword) throws Exception{
+		login = Encryption.rasshifr(shifrlogin);
+		password = Encryption.rasshifr(shifrpassword);
 		readhash(fileName, login, password);
 	}
 
@@ -17,8 +19,8 @@ public class SignIn {
 		byte[] buffer = new byte[32];
 		try(FileInputStream fin=new FileInputStream(fileName)){ 
 			while(fin.available()>0){
-				String shifrlogin="";
-				String shifrsalt="";
+				String inlogin="";
+				String insalt="";
 				fin.read(buffer);
 				int currentByte=fin.read();
 				char ns = 0;
@@ -28,25 +30,25 @@ public class SignIn {
 					while(flag){
 						ns = (char)fin.read();
 						if(ns!='\n'){
-							shifrlogin +=ns; 
+							inlogin +=ns; 
 						}else 
 							flag=false;
 					}
 				}
 				
-				String inlogin = encryp2.rasshifr(shifrlogin);
+				
 				if(ns=='\n'){
 					boolean flag = true;
 					while(flag){
 						ns = (char)fin.read();
 						if(ns!='\n'){
-							shifrsalt +=ns; 
+							insalt +=ns; 
 						}else 
 							flag=false;
 					}
 				
 				}	
-				String insalt = encryp2.rasshifr(shifrsalt);
+			
 				if(login.equals(inlogin)){
 					byte[] provhashps = makeHash(password, insalt);
 					if (new String(provhashps).equals(new String(buffer))){
@@ -80,10 +82,9 @@ public class SignIn {
 	}
 	
 	 public static void writeLogin(String login){
-		 String shifrLogin = encryp2.shifr(login);
 			try {
 				FileWriter writeLogin = new FileWriter("src/login",false);
-				writeLogin.write(shifrLogin);
+				writeLogin.write(login);
 				writeLogin.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

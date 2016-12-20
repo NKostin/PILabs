@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.security.MessageDigest;
 
 public class SignUp {
-	static Encryption encryp1 = new Encryption();
-	public void sigup(String login, String password, int salt, String fileName) throws Exception {
+	
+	public void sigup(String shifrlogin, String shifrpassword, int salt, String fileName) throws Exception {
 		
 			String stsalt = String.valueOf(salt);
+			String password = Encryption.rasshifr(shifrpassword);
 			byte[] hashpsstr = makeHash(password,stsalt);
+			String login = Encryption.rasshifr(shifrlogin);
 			String text = "\n"+login+"\n"+ stsalt+"\n";
 			writehash(fileName, hashpsstr);
 			write(fileName,text);
@@ -29,10 +31,8 @@ public class SignUp {
 		return hashps;
 	}
 	public static void write(String fileName, String text){
-		
-		String shifrtext = encryp1.shifr(text);
 		try (FileWriter writer = new FileWriter(fileName, true)){
-	        writer.write(shifrtext);
+	        writer.write(text);
 	        writer.flush();
 	    }
 	    catch(IOException ex){
@@ -53,12 +53,11 @@ public class SignUp {
 	}
 	public boolean findLogin(String fileName,String login) {
 		byte[] buffer = new byte[32];
-		Encryption encryp2 = new Encryption();
 		try {
 			FileInputStream fin=new FileInputStream(fileName);
 			while(fin.available()>0){
-				String shifrlogin="";
-				String shifrsalt="";
+				String inlogin="";
+				String insalt="";
 				fin.read(buffer);
 				int currentByte=fin.read();
 				char ns = 0;
@@ -68,20 +67,20 @@ public class SignUp {
 					while(flag){
 						ns = (char)fin.read();
 						if(ns!='\n'){
-							shifrlogin +=ns; 
+							inlogin +=ns; 
 						}else 
 							flag=false;
 					}
 				}
 				
-				String inlogin = encryp2.rasshifr(shifrlogin);
+				
 				
 				if(ns=='\n'){
 					boolean flag = true;
 					while(flag){
 						ns = (char)fin.read();
 						if(ns!='\n'){
-							shifrsalt +=ns; 
+							insalt +=ns; 
 						}else 
 							flag=false;
 					}
@@ -106,10 +105,11 @@ public class SignUp {
 	}
 	
 	 public static void writeLogin(String login){
-		 String shifrLogin = encryp1.shifr(login);
+		//получаем login расшифровываем
+		
 			try {
 				FileWriter writeLogin = new FileWriter("src/login",false);
-				writeLogin.write(shifrLogin);
+				writeLogin.write(login);
 				writeLogin.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
