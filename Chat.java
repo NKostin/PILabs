@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Chat extends Thread {
 	 Scanner in = new Scanner(System.in);
+	 
 	 boolean exit = true;
 	 public  void run(){
 		 System.out.println("Добропожаловать в чат!");
@@ -29,7 +30,7 @@ public class Chat extends Thread {
 				 this.exit=false;
 			 } else {
 			 
-				 String shifrString = Encryption.shifr(scan);
+				 String shifrString = Listener.listenString(scan);
 				 try {
 					 FileWriter writerChatString = new FileWriter("src/outputStream",false);
 					 writerChatString.write(shifrString);
