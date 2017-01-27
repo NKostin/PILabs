@@ -17,7 +17,7 @@ public class Registration {
 	 
 	SignIn siginer = new SignIn();
 	SignUp siguper = new SignUp();
-	Listener listen = new Listener();
+	
 	 
 	 public  void registration(){
 		 while(true){
@@ -25,9 +25,9 @@ public class Registration {
 	        String scan = in.nextLine();
 	        if(scan.equals(signin)){
 	        	System.out.print("Введите login: ");
-	        	shifrlogin = listen.listenString(in.nextLine()); 	
+	        	shifrlogin = Listener.listenString(in.nextLine()); 	
 	        	System.out.print("Введите password: ");
-	        	shifrpassword = listen.listenString(in.nextLine());
+	        	shifrpassword = Listener.listenString(in.nextLine());
 		        try {
 					siginer.sigin(fileName,shifrlogin,shifrpassword);
 				} catch (Exception e) {
@@ -39,7 +39,7 @@ public class Registration {
 	        	 boolean repeatLogin=true;
 	        	 while(repeatLogin){
 	        		 System.out.print("Введите login: ");
-	        		 shifrlogin = listen.listenString(in.nextLine()); 
+	        		 shifrlogin = Listener.listenString(in.nextLine()); 
 	        		 repeatLogin = siguper.findLogin(fileName,shifrlogin);
 	        		 if(repeatLogin){
 	        			 System.out.println("Такой login уже существует, пожалуйста, выберите другой");
@@ -47,9 +47,9 @@ public class Registration {
 	        	 }
 	        	 while(true){
 	        		System.out.print("Введите password: ");
-	        		shifrpassword = listen.listenString(in.nextLine()); 
-	 	       		System.out.print("Повторите введенный password: ");
-	 	       		shifrrepassword  = listen.listenString(in.nextLine()); 
+	        		shifrpassword = Listener.listenString(in.nextLine()); 
+	 	       		System.out.print("Повторите введенный пароль password: ");
+	 	       		shifrrepassword  = Listener.listenString(in.nextLine()); 
 	 	       		if(shifrpassword.equals(shifrrepassword)){
 	 	       			break;
 	 	       		} else
@@ -71,4 +71,5 @@ public class Registration {
 		 }
 	 }
 }
+
 
